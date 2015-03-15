@@ -1,0 +1,17 @@
+.jumbotron.ac
+  %h2 #BEStartupManifesto
+  %p.lead
+    In March 2014, a bunch of tech-startup enthousiasts released the
+    = link_to "#BEStartupManifesto", "http://startupmanifesto.be"
+  %h3 We did the math
+  %p.lead More Tech Startup = More Developers
+  %h3 We figured out
+  %p.lead it was about time for the Belgian Developer Scene to have its own directory
+
+
+.col-md-offset-1.col-md-10
+  .ac
+    %h2 Meet the #BEDevTeam
+    = link_to signin_path, class: "btn btn-primary btn-lg mt20 mb20" do
+      Join now
+  = render @users

@@ -1,0 +1,6 @@
+.col-md-offset-1.col-md-10
+  - flash.each do |type, message|
+    %div{:class => "alert #{bootstrap_class_for(type)} fade in mt10"}
+      %button.close{"data-dismiss" => "alert"} ×
+      = message
+.clearfix

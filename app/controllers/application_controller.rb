@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
 
+  layout 'flatty'
+
   private
     def current_user
       begin

@@ -1,0 +1,9 @@
+.col-sm-4.col-md-3
+  .thumbnail
+    = image_tag(user.image, class: "img-circle")
+    .caption
+      %h3= user.name
+      %p= user.headline
+      %p
+        = link_to user, class: "btn btn-default" do
+          More

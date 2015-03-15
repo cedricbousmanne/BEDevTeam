@@ -13,3 +13,66 @@
  *= require_tree .
  *= require_self
  */
+
+.flag-third{
+  width: 33.33%;
+  height: 3px;
+}
+
+#black { background: #000000; }
+#yellow{ background: #FFE936; }
+#red   { background: #FF0F21; }
+
+header{
+  background-image: url(image-path('header.jpg'));
+  position: relative;
+  height: 150px;
+  border-top: 1px solid #333;
+  .content{
+    position: absolute;
+    bottom: 20px;
+    background: rgba(0,0,0,0.8);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    display: block;
+    width: 100%;
+    padding: 20px 5px;
+    h1{
+      a{
+        color: #F3F3F3;
+      }
+      &:hover{
+        text-decoration: none;
+        color: #F7F7F7;
+      }
+    }
+    nav{
+      padding: 10px 0px;
+      ul{
+        position: absolute;
+        right: 5px;
+        li{
+          a{
+            color: white;
+            &:hover{
+              color: black;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+#visitors-index header{
+  background-position: bottom 30% right;
+  height: 500px;
+}
+
+footer{
+
+  padding: 50px;
+  background-image: url(image-path('paven/paven.png'));
+}

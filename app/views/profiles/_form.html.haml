@@ -1,0 +1,4 @@
+= simple_form_for(@user, url: profile_path) do |f|
+  - User.editable_attributes.each do |field|
+    = f.input field
+  = f.button :submit, input_html: { class: "btn btn-default"}
