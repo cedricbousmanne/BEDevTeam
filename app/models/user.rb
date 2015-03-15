@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  acts_as_taggable_on :skills, :interests
 
   def set_default_role
     if User.count == 0
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
     end
 
     def editable_attributes
-      %w(name headline description location email image linkedin_profile)
+      %w(name headline description location email image linkedin_profile skill_list interest_list)
     end
   end
 end

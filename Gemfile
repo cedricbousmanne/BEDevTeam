@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'twitter-bootswatch-rails', '~> 3.3.2'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer'
+gem 'acts-as-taggable-on', '~> 3.4'
+
 
 group :development, :test do
   gem 'byebug'

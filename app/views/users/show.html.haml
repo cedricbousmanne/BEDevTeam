@@ -11,13 +11,12 @@
             = @user.headline
           %p
             %strong Hobbies:
-            Hanging out with friends, listen to music, reading and learning new things.
+            - @user.interest_list.each do |interest|
+              %span.label.label-info.tags= interest
           %p
             %strong Skills:
-            %span.label.label-info.tags html5
-            %span.label.label-info.tags css3
-            %span.label.label-info.tags jquery
-            %span.label.label-info.tags bootstrap3
+            - @user.skill_list.each do |skill|
+              %span.label.label-info.tags= skill
         / /col
         .clearfix
         .col-xs-12.col-sm-4
