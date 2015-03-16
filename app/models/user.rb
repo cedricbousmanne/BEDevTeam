@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
   dragonfly_accessor :image
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   def set_default_role
     if User.count == 0

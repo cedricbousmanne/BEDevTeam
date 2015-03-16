@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).decorate
+    @user = User.friendly.find(params[:id]).decorate
   end
 
 end

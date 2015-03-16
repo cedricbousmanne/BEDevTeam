@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316114635) do
+ActiveRecord::Schema.define(version: 20150316115856) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 20150316114635) do
     t.string   "image_name",       limit: 255
     t.string   "twitter_profile",  limit: 255
     t.string   "github_profile",   limit: 255
+    t.string   "slug",             limit: 255
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
 end
