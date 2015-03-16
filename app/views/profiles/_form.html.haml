@@ -5,7 +5,9 @@
   = f.input :location
   = f.input :email
   = f.input :image, as: :file
-  = f.input :linkedin_profile
+  = f.input :linkedin_profile, hint: "https://www.linkedin.com/in/USERNAME"
+  = f.input :twitter_profile, hint: "https://twitter.com/USERNAME"
+  = f.input :github_profile, hint: "https://github.com/USERNAME"
   = f.input :skill_list, hint: "A list of your skills, comma separated", input_html: { value: f.object.skill_list.join(', ') }
   = f.input :interest_list, hint: "A list of your interests, comma separated", input_html: { value: f.object.interest_list.join(', ') }
 

@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     end
 
     def editable_attributes
-      %w(name headline description location email image linkedin_profile skill_list interest_list)
+      %w(name headline description location email image linkedin_profile twitter_profile github_profile skill_list interest_list)
     end
   end
 end
