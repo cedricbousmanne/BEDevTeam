@@ -80,6 +80,15 @@ header{
   height: 250px;
 }
 
+.tags{
+  a{
+    color: white;
+    &:hover{
+      color: #f3f3f3;
+    }
+  }
+}
+
 footer{
 
   padding: 50px;
