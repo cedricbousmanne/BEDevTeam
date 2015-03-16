@@ -5,46 +5,21 @@
         .col-xs-12.col-sm-4.text-center
           %img.center-block.img-circle.img-responsive{:alt => @user.name, :src => @user.image.thumb('200x200#').url}/
         .col-xs-12.col-sm-8
-          %h2= @user.name
+          %h2
+            = @user.name
+            %br
+            %small
+              = @user.headline
           %p
-            %strong About:
+            = @user.interests
+          %p
+            = @user.skills
+          %p
+            = @user.social_media_links
+        .col-md-12.mt10
+          %p.lead
             = @user.headline
-          %p
-            %strong Hobbies:
-            - @user.interest_list.each do |interest|
-              %span.label.label-info.tags= interest
-          %p
-            %strong Skills:
-            - @user.skill_list.each do |skill|
-              %span.label.label-info.tags= skill
-        / /col
-        .clearfix
-        .col-xs-12.col-sm-4
-          %h2
-            %strong 20,7K
-          %p
-            %small Followers
-          %button.btn.btn-success.btn-block
-            %span.fa.fa-plus-circle
-            Follow
-        / /col
-        .col-xs-12.col-sm-4
-          %h2
-            %strong 245
-          %p
-            %small Following
-          %button.btn.btn-info.btn-block
-            %span.fa.fa-user
-            View Profile
-        / /col
-        .col-xs-12.col-sm-4
-          %h2
-            %strong 43
-          %p
-            %small Snippets
-          %button.btn.btn-primary.btn-block{:type => "button"}
-            %span.fa.fa-gear
-            Options
+
         .col-md-12
           %h2
             Location

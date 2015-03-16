@@ -16,6 +16,7 @@ gem 'leaflet-rails', '~> 0.7.4'
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'dragonfly', '~> 1.0.7'
 gem 'linkedin', '~> 1.0.0'
+gem 'draper', '~> 1.3'
 
 group :development, :test do
   gem 'byebug'
