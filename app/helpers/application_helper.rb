@@ -14,4 +14,10 @@ module ApplicationHelper
       flash_type.to_s
     end
   end
+
+  def join_now_link
+    link_to signin_path, class: "btn btn-primary btn-lg mt20 mb20" do
+      "Join now"
+    end
+  end
 end

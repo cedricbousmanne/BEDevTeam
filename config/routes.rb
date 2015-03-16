@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
   resource :profile, only: [:edit, :update]
+  resources :skills, only: :show
+  resources :interests, only: :show
 end

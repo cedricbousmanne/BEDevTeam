@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  validates_format_of :linkedin_profile, with: /(https:\/\/(www\.)?linkedin.com\/in\/(.{1,}))/
+  validates_format_of :twitter_profile , with: /(https:\/\/(www\.)?twitter.com\/(.{1,}))/
+  validates_format_of :github_profile  , with: /(https:\/\/(www\.)?github.com\/(.{1,}))/
+
+  validates :name,     presence: true
+  validates :headline, presence: true
+  validates :location, presence: true
+  validates :email,    presence: true
+
   def set_default_role
     if User.count == 0
       self.role ||= :admin

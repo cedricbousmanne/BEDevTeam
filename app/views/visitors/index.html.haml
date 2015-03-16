@@ -12,6 +12,6 @@
 .col-md-offset-1.col-md-10
   .ac
     %h2 Meet the #BEDevTeam
-    = link_to signin_path, class: "btn btn-primary btn-lg mt20 mb20" do
-      Join now
+    = join_now_link unless current_user
+
   = render @users

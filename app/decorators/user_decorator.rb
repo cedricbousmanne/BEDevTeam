@@ -1,24 +1,25 @@
 class UserDecorator < Draper::Decorator
   delegate_all
+  include Rails.application.routes.url_helpers
 
   def interests
     if object.interest_list.any?
       h.content_tag(:strong, "Interests: ") +
-      tag_list(object.interest_list)
+      tag_list(object.interests, "interest")
     end
   end
 
   def skills
     if object.skill_list.any?
       h.content_tag(:strong, "Skills: ") +
-      tag_list(object.skill_list)
+      tag_list(object.skills, "skill")
     end
   end
 
-  def tag_list(collection)
+  def tag_list(collection, type)
     collection.map do |item|
       h.content_tag(:span, class: "label label-info tags") do
-        item
+        h.link_to item.name, h.send("#{type}_path", item.slug)
       end
     end.join(" ").html_safe
   end

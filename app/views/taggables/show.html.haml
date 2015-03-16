@@ -1,0 +1,7 @@
+- title(@page_title)
+
+.col-md-offset-1.col-md-10
+  .ac
+    %h2= @page_title
+    = join_now_link unless current_user
+  = render @taggable
