@@ -1,6 +1,7 @@
 !!! 5
 %html(lang="en")
   %head
+    = javascript_include_tag "application", "flatty", 'data-turbolinks-track' => true
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -39,5 +40,4 @@
       Javascripts
       \==================================================
     / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "flatty"
     = yield(:page_javascript) if content_for?(:page_javascript)

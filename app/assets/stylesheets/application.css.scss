@@ -11,7 +11,12 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require leaflet
  *= require_self
+ *= depend_on_asset "layers.png"
+ *= depend_on_asset "layers-2x.png"
+ *= require font-awesome
+
  */
 
 .flag-third{
@@ -60,15 +65,19 @@ header{
           }
         }
       }
-
     }
-
   }
 }
 
 #visitors-index header{
   background-position: bottom 30% right;
   height: 500px;
+}
+
+#map{
+  display: block;
+  position: auto !important;
+  height: 250px;
 }
 
 footer{

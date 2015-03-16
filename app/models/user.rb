@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
   acts_as_taggable_on :skills, :interests
+  geocoded_by :location
+  after_validation :geocode
 
   def set_default_role
     if User.count == 0
@@ -9,6 +11,10 @@ class User < ActiveRecord::Base
     else
       self.role ||= :user
     end
+  end
+
+  def coordinates
+    [latitude, longitude]
   end
 
   class << self

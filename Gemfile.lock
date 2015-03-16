@@ -110,6 +110,9 @@ GEM
     ffi (1.9.6)
     figaro (1.1.0)
       thor (~> 0.14)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
+    geocoder (1.2.7)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -141,6 +144,7 @@ GEM
     json (1.8.2)
     launchy (2.4.3)
       addressable (~> 2.3)
+    leaflet-rails (0.7.4)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.6.0)
@@ -323,6 +327,8 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro (>= 1.0.0.rc1)
+  font-awesome-rails (~> 4.3.0.0)
+  geocoder (~> 1.2.7)
   haml-rails
   high_voltage
   html2haml
@@ -330,6 +336,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  leaflet-rails (~> 0.7.4)
   mysql2
   omniauth
   omniauth-linkedin

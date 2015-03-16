@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315185049) do
+ActiveRecord::Schema.define(version: 20150315222904) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20150315185049) do
     t.string   "headline",         limit: 255
     t.string   "linkedin_profile", limit: 255
     t.string   "email",            limit: 255
+    t.float    "latitude",         limit: 24
+    t.float    "longitude",        limit: 24
   end
 
 end
