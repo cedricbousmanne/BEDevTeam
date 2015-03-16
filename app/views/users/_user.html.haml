@@ -1,6 +1,6 @@
 .col-sm-4.col-md-3
   .thumbnail
-    = image_tag(user.image, class: "img-circle")
+    = image_tag(user.image.thumb('150x150#').url, class: "img-circle")
     .caption
       %h3= user.name
       %p= user.headline

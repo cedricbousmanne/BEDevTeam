@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   acts_as_taggable_on :skills, :interests
   geocoded_by :location
   after_validation :geocode
+  dragonfly_accessor :image
 
   def set_default_role
     if User.count == 0
@@ -18,19 +19,28 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def linked_in_client(auth)
+      client = LinkedIn::Client.new
+      client.authorize_from_access(auth.extra.access_token.token, auth.extra.access_token.secret)
+      client
+    end
+
     def create_with_omniauth(auth)
       create! do |user|
         user.provider = auth['provider']
         user.uid = auth['uid']
+        client = linked_in_client(auth)
+
         if auth['info']
           user.name = auth['info']['name'] || ""
           user.email = auth['info']['email'] || ""
-          user.image = auth['info']['image'] || ""
+          user.image = Dragonfly.app.fetch_url(client.picture_urls.all.first) || ""
           user.description = auth['info']['description'] || ""
           user.location = auth['info']['location'] || ""
           user.headline = auth['info']['headline'] || ""
           user.linkedin_profile = auth['info']['urls']['public_profile'] || ""
         end
+
       end
     end
 

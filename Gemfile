@@ -14,6 +14,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'geocoder', '~> 1.2.7'
 gem 'leaflet-rails', '~> 0.7.4'
 gem 'font-awesome-rails', '~> 4.3.0.0'
+gem 'dragonfly', '~> 1.0.7'
+gem 'linkedin', '~> 1.0.0'
 
 group :development, :test do
   gem 'byebug'
