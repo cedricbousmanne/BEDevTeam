@@ -26,6 +26,3 @@
             Location
             %small= @user.location
           = map(:center => { :latlng => @user.coordinates, :zoom => 12 }, :markers => [{ :latlng => @user.coordinates, :popup => "#{@user.name} - #{@user.headline}" }])
-        / /col
-      / /row
-    / /panel-body

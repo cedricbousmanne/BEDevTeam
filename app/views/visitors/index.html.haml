@@ -9,10 +9,18 @@
   %h3 We figured out
   %p.lead it was about time for the Belgian Developer Scene to have its own directory
 
-
 .col-md-offset-1.col-md-10
   .ac
     %h2 Meet the #BEDevTeam
     = join_now_link unless current_user
 
   = render @users
+.clearfix
+
+.jumbotron.ac
+  %h2 Got an idea ?
+  %p.lead
+    We would like to make the best of the Belgian Developers Community. Feel free to fork, code and pull
+  = link_to "https://github.com/cedricbousmanne/BEDevTeam", class: "btn btn-lg btn-default" do
+    %i.fa.fa-github
+    GitHub repository
