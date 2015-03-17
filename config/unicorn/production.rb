@@ -1,6 +1,6 @@
 app_name    = "bedevteam"
 environment = 'production'
-app_path    = "/home/www/#{app_name}/#{environment}/current"
+app_path    = "/home/deploy/#{app_name}/#{environment}/current"
 pid         = "#{app_path}/tmp/pids/unicorn.pid"
 
 working_directory "#{app_path}"
