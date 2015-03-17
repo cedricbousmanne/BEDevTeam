@@ -79,3 +79,10 @@ Rails.application.configure do
 end
 
 GA.tracker = 'UA-141351-29'
+
+Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[BEDevTeam] ",
+    :sender_address => %{"notifier" <notifier@bedevteam.be>},
+    :exception_recipients => %w{cedric@studio-sept.be}
+  }
