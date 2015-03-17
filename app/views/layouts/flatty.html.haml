@@ -1,6 +1,7 @@
 !!! 5
 %html(lang="en")
   %head
+    = analytics_init if Rails.env.production?
     = javascript_include_tag "application", "flatty", 'data-turbolinks-track' => true
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")

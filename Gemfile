@@ -20,6 +20,7 @@ gem 'draper', '~> 1.3'
 gem 'friendly_id', '~> 5.1.0'
 gem 'unicorn', '~> 4.8.3'
 gem 'json', '~> 1.8.2'
+gem 'google-analytics-rails', '~> 0.0.6'
 
 group :development, :test do
   gem 'byebug'
