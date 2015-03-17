@@ -1,4 +1,8 @@
 set :stage, :production
+set :unicorn_env,    "production"
+set :rails_env,    "production"
+
+set :bundle_without, [:development, :cucumber, :test, :staging]
 
 # Simple Role Syntax
 # ==================

@@ -1,4 +1,4 @@
-app_name    = "bedevteam.be"
+app_name    = "bedevteam"
 environment = 'production'
 app_path    = "/home/www/#{app_name}/#{environment}/current"
 pid         = "#{app_path}/tmp/pids/unicorn.pid"
