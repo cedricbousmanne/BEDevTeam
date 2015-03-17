@@ -1,7 +1,7 @@
 app_name    = "bedevteam"
 environment = 'production'
 app_path    = "/home/deploy/#{app_name}/#{environment}/current"
-pid         = "#{app_path}/pids/unicorn.pid"
+pid         = "/home/deploy/#{app_name}/#{environment}/shared/pids/unicorn.pid"
 
 working_directory "#{app_path}"
 pid               "#{pid}"
