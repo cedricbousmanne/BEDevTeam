@@ -19,6 +19,7 @@ gem 'linkedin', '~> 1.0.0'
 gem 'draper', '~> 1.3'
 gem 'friendly_id', '~> 5.1.0'
 gem 'unicorn', '~> 4.8.3'
+gem 'json', '~> 1.8.2'
 
 group :development, :test do
   gem 'byebug'
@@ -41,6 +42,8 @@ group :development do
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm', '~> 0.1.1'
   gem 'capistrano3-unicorn', :require => false
+  gem 'capistrano-rbenv', '~> 2.0',  :require => false
+
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
