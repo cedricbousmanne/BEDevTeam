@@ -22,7 +22,7 @@ gem 'unicorn', '~> 4.8.3'
 gem 'json', '~> 1.8.2'
 gem 'google-analytics-rails', '~> 0.0.6'
 gem 'exception_notification'
-
+gem 'mandrill-api', '~> 1.0.53'
 
 group :development, :test do
   gem 'byebug'
