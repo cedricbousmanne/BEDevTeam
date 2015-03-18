@@ -41,17 +41,34 @@ class User < ActiveRecord::Base
         user.provider = auth['provider']
         user.uid = auth['uid']
         client = linked_in_client(auth)
+        create_with_provider(user, auth['provider'], auth['info'], client)
+      end
+    end
 
-        if auth['info']
-          user.name = auth['info']['name'] || ""
-          user.email = auth['info']['email'] || ""
-          user.image = Dragonfly.app.fetch_url(client.picture_urls.all.first) || ""
-          user.description = auth['info']['description'] || ""
-          user.location = auth['info']['location'] || ""
-          user.headline = auth['info']['headline'] || ""
-          user.linkedin_profile = auth['info']['urls']['public_profile'] || ""
-        end
+    def create_with_provider(user, provider, info, client)
+      case provider
+      when "linkedin"
+        create_with_linkedin(user, info, client)
+      end
+    end
 
+    def create_with_linkedin(user, info, client)
+      if info
+        user.name             = info['name'] || ""
+        user.email            = info['email'] || ""
+        user.description      = info['description'] || ""
+        user.location         = info['location'] || ""
+        user.headline         = info['headline'] || ""
+        user.linkedin_profile = info['urls']['public_profile'] || ""
+        user.image_url        = get_image(user, client)
+      end
+    end
+
+    def get_image(user, client)
+      begin
+        client.picture_urls.all.first
+      rescue
+        "#{ENV['DOMAIN_NAME']}/assets/default_user.png"
       end
     end
 
