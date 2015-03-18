@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  validates_format_of :linkedin_profile, allow_blank: true, allow_nil: true, with: /(https:\/\/(www\.)?linkedin.com\/(in|pub)\/(.{1,}))/
+  validates_format_of :linkedin_profile, allow_blank: true, allow_nil: true, with: /(https:\/\/([a-z]{2,3}\.)?linkedin.com\/(in|pub)\/(.{1,}))/
   validates_format_of :twitter_profile , allow_blank: true, allow_nil: true, with: /(https:\/\/(www\.)?twitter.com\/(.{1,}))/
   validates_format_of :github_profile  , allow_blank: true, allow_nil: true, with: /(https:\/\/(www\.)?github.com\/(.{1,}))/
 
