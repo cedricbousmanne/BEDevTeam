@@ -16,8 +16,12 @@ module ApplicationHelper
   end
 
   def join_now_link
-    link_to signin_path, class: "btn btn-primary btn-lg mt20 mb20" do
-      "Join now"
+    content = link_to signin_path, class: "btn btn-primary btn-lg mt20 mb20" do
+      content_tag(:i, "", class: "fa fa-linkedin") +
+      " " +
+      content_tag(:span, "Login or Signup ")
+
     end
+    content.html_safe
   end
 end
