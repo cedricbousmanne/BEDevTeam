@@ -184,6 +184,10 @@ GEM
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
+    mandrill_mailer (0.5.1)
+      actionpack
+      activesupport
+      mandrill-api (~> 1.0.9)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -381,7 +385,7 @@ DEPENDENCIES
   launchy
   leaflet-rails (~> 0.7.4)
   linkedin (~> 1.0.0)
-  mandrill-api (~> 1.0.53)
+  mandrill_mailer
   mysql2
   omniauth
   omniauth-linkedin
