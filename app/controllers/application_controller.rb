@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   helper_method :correct_user?
+  helper_method :most_used_skills
 
   layout 'flatty'
 
@@ -33,6 +34,10 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
+    end
+
+    def most_used_skills
+      @most_used_skills ||= ActsAsTaggableOn::Tag.joins(:taggings).where('taggings.context = ?', 'skills').most_used(5)
     end
 
 end

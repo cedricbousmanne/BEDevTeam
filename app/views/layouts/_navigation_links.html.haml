@@ -1,3 +1,7 @@
+- most_used_skills.each do |skill|
+  %li
+    = link_to skill.name.capitalize, skill_path(skill)
+
 - if user_signed_in?
   %li
     = link_to 'My Profile', edit_profile_path
