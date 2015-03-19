@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
     end
 
     def most_used_locations
-      @most_used_locations ||= User.select('location, latitude, longitude, count(*) count').group('location').order('count').limit(5)
+      @most_used_locations ||= User.select('location, latitude, longitude, count(*) count').group('location').order('count').where('location != ?', '').limit(5)
     end
 
 end
