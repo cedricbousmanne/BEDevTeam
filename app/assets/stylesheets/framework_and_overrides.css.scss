@@ -80,3 +80,9 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.btn-social{
+  &:hover{
+    color: #f7f7f7 !important;
+  }
+}

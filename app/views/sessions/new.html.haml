@@ -1,0 +1,14 @@
+.row
+  .col-md-4.col-md-offset-4.mt50.mb50
+    .well.mt50.mb50
+      %h2 Login or Signup
+      %p.lead Please select a service below to Login or Signup
+      .row
+        .col-md-8.col-md-offset-2.mb10
+          = link_to "auth/linkedin", class: "btn btn-block btn-lg btn-social btn-linkedin" do
+            %i.fa.fa-linkedin
+            with LinkedIn
+        .col-md-8.col-md-offset-2.mb10
+          = link_to "auth/github", class: "btn btn-block btn-lg btn-social btn-github" do
+            %i.fa.fa-github
+            with GitHub

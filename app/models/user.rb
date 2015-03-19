@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   validates_format_of :github_profile  , allow_blank: true, allow_nil: true, with: /(https:\/\/(www\.)?github.com\/(.{1,}))/
 
   validates :name,     presence: true
-  validates :headline, presence: true
-  validates :location, presence: true
+  validates :headline, presence: true, on: :update
+  validates :location, presence: true, on: :update
   validates :email,    presence: true
 
   def set_default_role
@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def oauth_client(auth, provider)
+      linked_in_client(auth) if provider == "linkedin"
+    end
+
     def linked_in_client(auth)
       client = LinkedIn::Client.new
       client.authorize_from_access(auth.extra.access_token.token, auth.extra.access_token.secret)
@@ -40,7 +44,7 @@ class User < ActiveRecord::Base
       create! do |user|
         user.provider = auth['provider']
         user.uid = auth['uid']
-        client = linked_in_client(auth)
+        client = oauth_client(auth, auth['provider'])
         create_with_provider(user, auth['provider'], auth['info'], client)
       end
     end
@@ -49,6 +53,8 @@ class User < ActiveRecord::Base
       case provider
       when "linkedin"
         create_with_linkedin(user, info, client)
+      when "github"
+        create_with_github(user, info, client)
       end
     end
 
@@ -61,6 +67,15 @@ class User < ActiveRecord::Base
         user.headline         = info['headline'] || ""
         user.linkedin_profile = info['urls']['public_profile'] || ""
         user.image_url        = get_image(user, client)
+      end
+    end
+
+    def create_with_github(user, info, client)
+      if info
+        user.name             = info['name'] || ""
+        user.email            = info['email'] || ""
+        user.github_profile   = info['urls']['GitHub'] || ""
+        user.image_url        = info['image'] || ""
       end
     end
 
