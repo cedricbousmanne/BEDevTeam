@@ -1,0 +1,12 @@
+- title(@page_title)
+
+.col-md-offset-1.col-md-10
+  .ac
+    %h2= @page_title
+    = join_now_link unless current_user
+    .row
+      .col-md-12
+        .thumbnail
+          / = map(:center => { :latlng => coordinates, :zoom => 12 })
+          = map(:center => { :latlng => coordinates, :zoom => 12 }, :markers => @users.map{|user| { :latlng => user.coordinates, :popup => "#{user.name} - #{user.headline}" } })
+  = render @users

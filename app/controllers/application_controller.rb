@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :most_used_skills
+  helper_method :most_used_interests
+  helper_method :most_used_locations
 
   layout 'flatty'
 
@@ -38,6 +40,14 @@ class ApplicationController < ActionController::Base
 
     def most_used_skills
       @most_used_skills ||= ActsAsTaggableOn::Tag.joins(:taggings).where('taggings.context = ?', 'skills').most_used(5)
+    end
+
+    def most_used_interests
+      @most_used_interests ||= ActsAsTaggableOn::Tag.joins(:taggings).where('taggings.context = ?', 'interests').most_used(5)
+    end
+
+    def most_used_locations
+      @most_used_locations ||= User.select('location, latitude, longitude, count(*) count').group('location').order('count').limit(5)
     end
 
 end

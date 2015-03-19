@@ -1,0 +1,6 @@
+.list-group
+  - list.each do |item|
+    - if type == "location"
+      = link_to item.location, send("#{type}_path", item.location.parameterize, latitude: item.latitude, longitude: item.longitude), class: "list-group-item"
+    - else
+      = link_to item.name, send("#{type}_path", item.slug), class: "list-group-item"

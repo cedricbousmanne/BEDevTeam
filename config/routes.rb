@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resource :profile, only: [:edit, :update]
   resources :skills, only: :show
   resources :interests, only: :show
+  resources :locations, only: :show
 end
